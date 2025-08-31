@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: buildquote-backend
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    buildCommand: npm run migrate
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+      - key: JWT_SECRET
+      - key: STRIPE_SECRET
+      - key: STRIPE_WEBHOOK_SECRET
+      - key: AWS_ACCESS_KEY_ID
+      - key: AWS_SECRET_ACCESS_KEY
+      - key: S3_BUCKET
+  - type: static
+    name: buildquote-frontend
+    env: static
+    branch: main
+    buildCommand: npm install && npm run build
+    publishCommand: npm run build
+    root: /
+    plan: free
