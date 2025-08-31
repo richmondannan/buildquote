@@ -9,9 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-      BACKEND_SERVICE_ID: <YOUR_BACKEND_SERVICE_ID>
-      FRONTEND_SERVICE_ID: <YOUR_FRONTEND_SERVICE_ID>
+      RENDER_API_KEY: ${{ secrets.rnd_sxdbHas6CFv7cvxyNCnSCVvYtue8 }}
+      BACKEND_SERVICE_ID: <srv-d2q5jgn5r7bs73ab09qg>
+      FRONTEND_SERVICE_ID: <srv-d2q5n975r7bs73ab4g0g>
 
     steps:
       - name: Checkout repo
@@ -36,8 +36,8 @@ jobs:
 
       - name: Deploy backend to Render
         run: |
-          curl -X POST "https://api.render.com/deploy/srv-${BACKEND_SERVICE_ID}"           -H "Authorization: Bearer ${RENDER_API_KEY}"           -H "Accept: application/json"
+          curl -X POST "https://api.render.com/deploy/srv-${srv-d2q5jgn5r7bs73ab09qg}"           -H "Authorization: Bearer ${rnd_sxdbHas6CFv7cvxyNCnSCVvYtue8}"           -H "Accept: application/json"
 
       - name: Deploy frontend to Render
         run: |
-          curl -X POST "https://api.render.com/deploy/srv-${FRONTEND_SERVICE_ID}"           -H "Authorization: Bearer ${RENDER_API_KEY}"           -H "Accept: application/json"
+          curl -X POST "https://api.render.com/deploy/srv-${srv-d2q5n975r7bs73ab4g0g}"           -H "Authorization: Bearer ${rnd_sxdbHas6CFv7cvxyNCnSCVvYtue8}"           -H "Accept: application/json"
