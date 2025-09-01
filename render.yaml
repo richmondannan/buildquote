@@ -22,3 +22,8 @@ services:
     publishCommand: npm run build
     root: /
     plan: free
+  - type: web
+    name: fullstack-app
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
